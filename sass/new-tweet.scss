@@ -1,0 +1,109 @@
+// Variables
+$container-max-width: 600px;
+$padding: 20px;
+$border-bottom-color: #484848;
+$button-bg-color: #4056A1;
+$button-hover-bg-color: #2f3f74;
+$button-font-family: "Bungee", sans-serif;
+$counter-font-family: "Bungee", sans-serif;
+$error-color: red;
+$error-padding: 12px;
+$error-width: 80%;
+$error-margin: 10px;
+$heading-font-size: 1.5em;
+$textarea-padding: 10px;
+$textarea-margin: 10px 0;
+$textarea-font-size: 1em;
+$form-font-family: "Source Sans 3", Arial, Helvetica, sans-serif;
+$counter-font-size: 1.2em;
+
+// Mixins
+@mixin flex-display {
+    display: flex;
+}
+
+@mixin flex-center {
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin transition-bg($time) {
+    transition: $time background-color;
+}
+
+// Styles
+.container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+    padding: $padding;
+    color: inherit;
+}
+
+.new-tweet {
+    // Styles specific to .new-tweet can be added here
+}
+
+.new-tweet h2 {
+    font-size: $heading-font-size;
+    margin-bottom: $padding;
+}
+
+.new-tweet textarea {
+    width: 100%;
+    padding: $textarea-padding;
+    margin: $textarea-margin;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 4px solid $border-bottom-color;
+    font-size: $textarea-font-size;
+    resize: none;
+    color: inherit;
+    background-color: inherit;
+}
+
+.new-tweet form div {
+    @include flex-display;
+    @include flex-center;
+    margin-top: $padding / 2;
+    font-family: $form-font-family;
+}
+
+.new-tweet form label {
+    font-weight: bold;
+}
+
+.new-tweet button {
+    background-color: $button-bg-color;
+    font-family: $button-font-family;
+    color: white;
+    border: none;
+    padding: $textarea-padding $padding;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-transform: uppercase;
+    @include transition-bg(0.25s);
+
+    &:hover {
+        background-color: $button-hover-bg-color;
+    }
+}
+
+.new-tweet .counter {
+    font-size: $counter-font-size;
+    font-family: $counter-font-family;
+}
+
+.error {
+    font-size: $heading-font-size;
+    color: $error-color;
+    border-style: solid;
+    border-color: $error-color;
+    padding: $error-padding;
+    text-align: center;
+    width: $error-width;
+    margin-top: $error-margin;
+    margin-left: $error-margin;
+    margin-right: $error-margin;
+    z-index: 10;
+}

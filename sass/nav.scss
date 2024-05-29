@@ -1,0 +1,152 @@
+// Variables
+$font-weight: 400;
+$font-style: normal;
+$font-size: 1.5em;
+$nav-bg-color: #4056A1;
+$nav-color: #FFFFFF;
+$nav-height: 120px;
+$padding-horizontal: 1.5em;
+$flex-item-font-family: "Bungee", sans-serif;
+$icon-color: #F44336;
+$scroll-btn-bg-color: #F44336;
+$scroll-btn-hover-bg-color: #ba3329;
+$breakpoint: 1024px;
+
+// Mixins
+@mixin flex-display {
+    display: flex;
+}
+
+@mixin flex-center {
+    align-items: center;
+}
+
+@mixin justify-space-between {
+    justify-content: space-between;
+}
+
+@mixin flex-column-center {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+@mixin transition-bg($time) {
+    transition: $time background-color;
+}
+
+@mixin responsive-flex-container {
+    @media (max-width: $breakpoint) {
+        flex-direction: column;
+        padding-top: 0.5em;
+
+        .flex-item-right, .flex-item-left {
+            flex: 100%;
+            text-align: center;
+            margin-top: 0;
+            padding: 0 $padding-horizontal;
+            margin-right: 0;
+        }
+
+        nav {
+            height: auto;
+        }
+    }
+}
+
+// Keyframes
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-5px);
+    }
+    60% {
+        transform: translateY(-15px);
+    }
+}
+
+// Styles
+nav {
+    font-weight: $font-weight;
+    font-style: $font-style;
+    font-size: $font-size;
+    background-color: $nav-bg-color;
+    color: $nav-color;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1;
+    height: $nav-height;
+    @include flex-display;
+    @include flex-center;
+    @include justify-space-between;
+    padding: 0 $padding-horizontal;
+}
+
+.flex-container {
+    @include flex-display;
+    width: 100%;
+    @include responsive-flex-container;
+}
+
+.flex-item-left {
+    background-color: $nav-bg-color;
+    font-family: $flex-item-font-family;
+    @include flex-display;
+    @include flex-center;
+    flex: 1;
+}
+
+.flex-item-right {
+    background-color: $nav-bg-color;
+    @include flex-display;
+    @include flex-column-center;
+    font-size: 0.7em;
+    margin-right: $padding-horizontal;
+
+    > p, > i {
+        margin: 0;
+    }
+
+    > p {
+        margin-bottom: 0.5em; // Space between text and icon
+    }
+
+    > i {
+        color: $icon-color; // Adjust color of the icon
+    }
+}
+
+.fa-angles-down {
+    animation: bounce 2s infinite;
+    cursor: pointer; // to look clickable
+}
+
+#scrollTop {
+    display: none;
+    position: fixed;
+    top: 90%;
+    right: 5%;
+    z-index: 8;
+    width: 50px;
+    height: 50px;
+    background-color: $scroll-btn-bg-color;
+    border-radius: 50%;
+    @include flex-display;
+    @include flex-center;
+    text-align: center;
+    color: white;
+    transition: 0.5s display, 0.5s background-color;
+    cursor: pointer;
+
+    &:hover {
+        background-color: $scroll-btn-hover-bg-color;
+    }
+
+    .fa-angles-up {
+        padding: 15px 5px;
+    }
+}

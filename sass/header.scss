@@ -1,0 +1,43 @@
+$white-color: #ffffff;
+$bg-color: #232020;
+$banner-height: 400px;
+$padding: 40px;
+$margin-left: 10%;
+$margin-top: 50px;
+$breakpoint: 1024px;
+
+
+@mixin flex-center {
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin responsive-banner {
+    @media screen and (max-width: $breakpoint) {
+        margin-left: 0;
+        z-index: 2;
+        margin-top: -15px;
+    }
+}
+
+
+.hero-banner {
+    height: $banner-height;
+    width: 100%;
+    @include flex-center;
+    text-align: center;
+    padding: $padding;
+    color: $white-color;
+    background-image: url("../images/cubes.png");
+    background-color: $bg-color;
+    margin-left: $margin-left;
+    margin-top: $margin-top;
+    
+    @include responsive-banner;
+}
+
+.header-content {
+    vertical-align: middle;
+    margin: 25%, 25%;
+}
+

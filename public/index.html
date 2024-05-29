@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Information -->
+    <title>Tweeter - Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
+
+     <!-- Bungee gum Font (properties of rubber and gum)-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet">
+
+      <!-- Source Sans 3 Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<!-- Font Awesome CDN  -->
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link rel="stylesheet" href="./styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/nav.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/header.css" type="text/css" />
+    <link rel="stylesheet" href="./styles/new-tweet.css" type="text/css" /> 
+    <link rel="stylesheet" href="./styles/tweet.css" type="text/css" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- External JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- timeago cdn for displaying the time passed since a date  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- App JS -->
+    <script type="text/javascript" src="/scripts/client.js" defer></script>
+  </head>
+
+  <body>
+    <!-- Top nav bar (fixed) -->
+    <nav class ="flex-container">
+      <div class ="flex-item-left"><span>tweeter</span></div>
+      <div class ="flex-item-right">
+        <p>Write a new tweet</p>
+      <i id="arrow-button-selector" class="fa-solid fa-angles-down"></i>
+    </div>
+    </nav>
+
+<div class ="main-container">
+  <div class = "main-item-left">
+    <header class = "hero-banner">
+      <div class = header-content>
+          <img src="/images/profile-hex.png"> 
+          <h2>Sorren Jao</h2>
+      </div>
+  
+  </header>
+</div>
+
+<div class ="main-item-right">
+</br>
+
+    <!-- Page-specific (main) content here -->
+    <main class="container">
+      <div id="empty" class="error">Sorry your tweet cannot be left empty!</div>
+      <div id="overLim" class="error">Sorry your tweet is too long!</div>
+      <section id="compose-tweet-selector" class="new-tweet">
+        <form action="/tweets" method="POST" id="tweet-form">
+          <!-- <label for="tweet-text">What are you humming about?</label> -->
+          <textarea name="text" id="tweet-text"  placeholder="What are you humming about?"></textarea>
+          <div>
+            <button id="btn" type="submit">Tweet</button>
+            <output id="char-counter" name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
+  
+    </br>
+    <p id="results"></p>
+
+<div id="tweet-container"></div>
+
+<div id="scrollTop"><i class="fa-solid fa-angles-up"></i></div>
+<p class="end_message">You have reached the end of all Tweets!</p>
+
+</main>
+  </div>
+  </div>
+    <script src="/scripts/composer-char-counter.js"></script> 
+  
+  
+  </body>
+</html>

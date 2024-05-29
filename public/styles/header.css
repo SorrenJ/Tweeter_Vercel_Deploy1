@@ -1,0 +1,25 @@
+.hero-banner {
+  height: 400px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  color: #ffffff;
+  background-image: url("../images/cubes.png");
+  background-color: #232020;
+  margin-left: 10%;
+  margin-top: 50px;
+}
+@media screen and (max-width: 1024px) {
+  .hero-banner {
+    margin-left: 0;
+    z-index: 2;
+    margin-top: -15px;
+  }
+}
+
+.header-content {
+  vertical-align: middle;
+  margin: 25%, 25%;
+}
