@@ -5,7 +5,11 @@
 const PORT = process.env.PORT || 5000;
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors"); // Add this line to import the CORS package
 const app = express();
+
+// Enable CORS for your client domain
+app.use(cors({ origin: 'https://tweeter-vercel-deploy1-client-89h5jniyx-sorrenjs-projects.vercel.app' }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
